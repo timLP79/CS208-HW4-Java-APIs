@@ -1,9 +1,6 @@
 package cs208;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class PracticeController {
@@ -37,6 +34,26 @@ public class PracticeController {
 
     // TODO: create a POST route with two form parameters
 
+    @PostMapping("/create_user")
+    String postIssuesWithTwoFormParameters(
+            @RequestParam("first_name") String firstName,
+            @RequestParam("last_name") String lastName
+    )
+    {
+        System.out.println("Practice Controller - START");
+        System.out.println("Parameters received in the body of the POST request:");
+        System.out.println("first_name = " + firstName);
+        System.out.println("last_name = " + lastName);
+        System.out.println("Practice Controller - END");
+
+
+        return "Parameters received in the body of the POST request:\n" +
+               "first_name = " + firstName + "\n" +
+               "last_name = " + lastName + "\n\n" +
+               "This REST API route would create a new issue with the title and description specified in the parameters.\n\n" +
+               "<br>" +
+               "Find me in the Practice Controller";
+    }
 
     // TODO: create a PATCH route
 
