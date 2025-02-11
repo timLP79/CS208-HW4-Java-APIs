@@ -33,7 +33,6 @@ public class PracticeController {
     }
 
     // TODO: create a POST route with two form parameters
-
     @PostMapping("/create_user")
     String postIssuesWithTwoFormParameters(
             @RequestParam("first_name") String firstName,
