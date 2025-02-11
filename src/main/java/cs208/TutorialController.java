@@ -95,19 +95,19 @@ public class TutorialController
     // GET /search_with_two_parameters?parameter1=value1&parameter2=value2
     @GetMapping("/search_with_two_parameters")
     String getSearchWithTwoParameters(
-            @RequestParam("parameter1") String parameter1,
-            @RequestParam("parameter2") String parameter2
+            @RequestParam("first_name") String parameter1,
+            @RequestParam("last_name") String parameter2
     )
     {
         System.out.println("TutorialController.getSearchWithTwoParameters - START");
-        System.out.println("parameter1 sent in the browser URL = " + parameter1);
-        System.out.println("parameter2 sent in the browser URL = " + parameter2);
+        System.out.println("first_name sent in the browser URL = " + parameter1);
+        System.out.println("last_name sent in the browser URL = " + parameter2);
         System.out.println("TutorialController.getSearchWithTwoParameters - END");
 
         String valueReturnedToBrowser =
             "These are the values of parameters passed in the URL:<br>" +
-            "parameter1 = " + parameter1 + "<br>" +
-            "parameter2 = " + parameter2 + "<br><br>" +
+            "first_name = " + parameter1 + "<br>" +
+            "last_name = " + parameter2 + "<br><br>" +
             "NOTE: the parameters are separated in the URL by an ampersand (&amp;) character.<br><br>" +
             "<hr>" +
             "Find me in the TutorialController.getSearchWithTwoParameters() method";
