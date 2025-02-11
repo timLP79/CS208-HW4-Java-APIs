@@ -1,6 +1,7 @@
 package cs208;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,15 @@ public class PracticeController {
     }
 
     // TODO: create a GET route with a path parameter
+    @GetMapping("/user/{yourBSUUsername}/profile")
+    String getUserProfile(@PathVariable("yourBSUUsername") String username)
+    {
+        System.out.println("Practice Controller - START");
+        System.out.println("yourBSUUsername = " + username);
+        System.out.println("Practice Controller - END");
 
+        return "<br>" + "The path parameter is: " + username + "<br>";
+    }
 
     // TODO: create a POST route with two form parameters
 
