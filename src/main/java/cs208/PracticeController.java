@@ -7,29 +7,29 @@ public class PracticeController {
     // TODO: create a GET route with two query parameters
     @GetMapping("/display_name")
     String getSearchWithTwoParameters(
-            @RequestParam("first_name") String parameter1,
-            @RequestParam("last_name") String parameter2
+            @RequestParam("first_name") String firstName,
+            @RequestParam("last_name") String lastName
     )
     {
         System.out.println("Practice Controller - START");
-        System.out.println("first_name sent in the browser URL = " + parameter1);
-        System.out.println("last_name sent in the browser URL = " + parameter2);
+        System.out.println("first_name sent in the browser URL = " + firstName);
+        System.out.println("last_name sent in the browser URL = " + lastName);
         System.out.println("Practice Controller - END");
 
         return "These are the values of parameters passed in the URL:<br>" +
-                "first_name = " + parameter1 + "<br>" +
-                "last_name = " + parameter2 + "<br><br>";
+                "first_name = " + firstName + "<br>" +
+                "last_name = " + lastName + "<br><br>";
     }
 
     // TODO: create a GET route with a path parameter
     @GetMapping("/user/{yourBSUUsername}/profile")
-    String getUserProfile(@PathVariable("yourBSUUsername") String username)
+    String getUserProfile(@PathVariable("yourBSUUsername") String userName)
     {
         System.out.println("Practice Controller - START");
-        System.out.println("yourBSUUsername = " + username);
+        System.out.println("yourBSUUsername = " + userName);
         System.out.println("Practice Controller - END");
 
-        return "<br>" + "The path parameter is: " + username + "<br>";
+        return "<br>" + "The path parameter is: " + userName + "<br>";
     }
 
     // TODO: create a POST route with two form parameters
