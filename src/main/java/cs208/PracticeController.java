@@ -1,5 +1,6 @@
 package cs208;
 
+import org.springframework.boot.convert.Delimiter;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -76,7 +77,34 @@ public class PracticeController {
     }
 
     // TODO: create a DELETE route
+    @DeleteMapping("/resource/{resourceId}")
+    String deleteResource(
+        @PathVariable("resourceId") String resourceId,
+        @RequestParam("authentication_token") String authenticationToken
+    )
+    {
+        if (isValidToken(authenticationToken))
+        {
+            System.out.println("Practice Controller - START");
+            System.out.println("Resource " + resourceId + " deleted");
+            System.out.println("Practice Controller - END");
 
+            return "Resource " + resourceId + " successfully deleted";
+        }
+        else
+        {
+            System.out.println("Practice Controller - START");
+            System.out.println("Resource " + resourceId + " was not deleted");
+            System.out.println("Practice Controller - END");
+
+            return "Resource " + resourceId + " was not deleted";
+        }
+    }
+
+    private boolean isValidToken(String token)
+    {
+        return token.equals("jfGvNOpP4tYc59eebAndOtherRandomCharacters");
+    }
 
     // TODO: create a GET API that returns a random resource
 
