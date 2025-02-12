@@ -45,17 +45,35 @@ public class PracticeController {
         System.out.println("last_name = " + lastName);
         System.out.println("Practice Controller - END");
 
-
         return "Parameters received in the body of the POST request:\n" +
                "first_name = " + firstName + "\n" +
                "last_name = " + lastName + "\n\n" +
-               "This REST API route would create a new issue with the title and description specified in the parameters.\n\n" +
+               "This REST API route would create a new user using the two parameters.\n\n" +
                "<br>" +
                "Find me in the Practice Controller";
     }
 
     // TODO: create a PATCH route
+    @PatchMapping("/user/{yourBSUUsername}/update_profile")
+    String patchUserProfile(
+            @PathVariable("yourBSUUsername") String userName,
+            @RequestParam("theme") String theme,
+            @RequestParam("language_code") String langCode
+    )
+    {
+        System.out.println("Practice Controller - START");
+        System.out.println("Parameters received in the body of the PATCH request:");
+        System.out.println("yourBSUUsername = " + userName);
+        System.out.println("theme = " + theme);
+        System.out.println("langCode = " + langCode);
+        System.out.println("Practice Controller - END");
 
+        return "Parameters received in the body of the PATCH request\n" +
+                "yourBSUUsername = " + userName + "\n" +
+                "theme = " + theme + "\n" +
+                "langCode = " + langCode + "\n" +
+                "The REST API route would patch a user using the two parameters.";
+    }
 
     // TODO: create a DELETE route
 
