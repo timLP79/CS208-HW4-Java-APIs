@@ -76,7 +76,7 @@ public class PracticeController {
                 "The REST API route would patch a user using the two parameters.";
     }
 
-    // TODO: create a DELETE route
+    // TODO: create a DELETE route (12)
     @DeleteMapping("/resource/{resourceId}")
     String deleteResource(
         @PathVariable("resourceId") String resourceId,
