@@ -107,5 +107,57 @@ public class PracticeController {
     }
 
     // TODO: create a GET API that returns a random resource
+    @GetMapping("/superbowl/{yourTeam}/feedback")
+    String getFeedbackAboutSuperbowl(@PathVariable("yourTeam") String yourTeam)
+    {
+        String returnFeedback = "";
 
+        if (yourTeam.equals("eagles"))
+        {
+            System.out.println("Way to go Kellen Moore and the Eagles!");
+            System.out.println("Patrick Mahomes is overrated!");
+            returnFeedback =
+                    "<html>" +
+                            "<head>" +
+                            "<title>Congratulations, Kellen Moore & the Eagles!</title>" +
+                            "<style>" +
+                            "body { background-color: #004C54; color: #A5ACAF; text-align: center; font-family: Arial, sans-serif; }" +
+                            "h1 { font-size: 3em; margin-top: 50px; }" +
+                            "h2 { font-size: 2em; }" +
+                            "img { width: 300px; margin-top: 20px; }" +
+                            "</style>" +
+                            "</head>" +
+                            "<body>" +
+                            "<h1>🏆 Congratulations, Kellen Moore! 🏆</h1>" +
+                            "<h2>The Philadelphia Eagles are Super Bowl Champions! 🦅</h2>" +
+                            "<img src='/eagles.png'>" +
+                            "<p>Fly Eagles Fly! 🎉</p>" +
+                            "</body>" +
+                            "</html>";
+        }
+        else if (yourTeam.equals("chiefs"))
+        {
+            System.out.println("Better luck next time! Chiefs");
+            returnFeedback =
+                    "<html>" +
+                            "<head>" +
+                            "<title>Congratulations, Kansas City Chiefs!</title>" +
+                            "<style>" +
+                            "body { background-color: #E31837; color: #FFB612; text-align: center; font-family: Arial, sans-serif; }" +
+                            "h1 { font-size: 3em; margin-top: 50px; }" +
+                            "h2 { font-size: 2em; }" +
+                            "img { width: 300px; margin-top: 20px; }" +
+                            "</style>" +
+                            "</head>" +
+                            "<body>" +
+                            "<h1>\uD83D\uDC4E Sorry, Kansas City Chiefs! \uD83D\uDC4E</h1>" +
+                            "<h2>NOT Super Bowl Champions!</h2>" +
+                            "<p>Not this year... \uD83D\uDE22</p>" +
+                            "<img src='/mahomes.webp' alt='Needs Insurance'>" +
+                            "</body>" +
+                            "</html>";
+        }
+
+        return returnFeedback;
+    }
 }
